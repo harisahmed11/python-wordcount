@@ -1,5 +1,13 @@
 from flask import Flask
+import os
+
 app=Flask(__name__)
+# app.config.from_object(os.environ['APP_SETTINGS'])
+env =os.environ['APP_SETTINGS']
+app.config.from_object(env)
+# app.config.from_envvar(os.environ['APP_SETTINGS'])
+print(os.environ['APP_SETTINGS'])
+
 
 
 @app.route('/')
